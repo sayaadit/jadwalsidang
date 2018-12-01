@@ -1,0 +1,131 @@
+/*body{
+  overflow-y: hidden;
+}*/
+
+.interactive-bg {
+  height: 100.01vh;
+  background-image: url(img/bg-wisuda-fix.png);
+  padding: 0px;
+  background-repeat: no-repeat;
+}
+.interactive-bgregister {
+  height: 100.01vh;
+  background-image: url(img/bg-wisuda-wide.png);
+  padding: 0px;
+  background-repeat: no-repeat;
+  padding-top: 13px;
+}
+
+.registerform{
+  background: #fff;
+  border-radius: 10px;
+}
+
+.login-logo {
+  margin: 0 auto;
+  margin-bottom: 50px;
+  max-height: 150px;
+
+}
+
+.input {
+  border-radius: 50px;
+}
+input.input:hover {
+  border-color: #F44336;
+}
+
+input.is-active,.input.is-focused,.input:active,.input:focus{
+  border-color:#F44336;
+  -webkit-box-shadow:0 0 0 .125em rgba(203,0,3,.25);
+  box-shadow:0 0 0 .125em rgba(203,0,3,.25)}
+}
+
+.button {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  min-width: 150px;
+}
+
+.button.is-primary.is-outlined{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: #ffffff;
+  border-color: #F44336;
+  color: #F44336;
+  min-width: 150px;
+  border-radius: 50px;
+}
+
+.button.is-primary.is-outlined:hover{
+  background-color: #F44336;
+  border-color: #F44336;
+  color: #fff;
+}
+
+.btnLogin{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: #ffffff;
+  border-color: #F44336;
+  color: #F44336;
+  min-width: 150px;
+  border-radius: 50px;
+}
+
+.signup{
+  color: #bfbfbf;
+}
+.signup:hover{
+  color: #F44336;
+}
+
+.columns{
+  margin: 0px;
+}
+
+@media (max-width: 769px) {
+  .interactive-bg{
+    display: none;
+  }
+  .interactive-bgregister{
+    padding-top: 0px;
+    height:
+  }
+  .registerform{
+    border-radius: 0px;
+  }
+  .login-logo{
+    max-height: 100px;
+    margin-bottom: 20px;
+  }
+  .field .label{
+    font-size: 10px;
+  }
+  .interactive-bgregister .registerform section{
+    padding: 10px;
+  }
+  .login section{
+    padding: 25px 10px 10px 10px;
+  }
+  .interactive-bgregister .registerform section input{
+    height: 30px;
+  }
+  .interactive-bgregister .registerform section .icon{
+    height: 2em;
+    margin-right: 5px;
+    width: 2em;
+  }
+  .button.is-primary.is-outlined{
+    margin-top: 6px;
+    margin-bottom: 7px;
+    font-size: 14px;
+    min-width: 120px;
+  }
+  .interactive-bgregister .registerform p, .login section p{
+    font-size: 12px;
+  }
+  .login section .bottomLogin{
+    margin-top: 97px;
+  }
+}
