@@ -22,11 +22,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <div class="has-text-centered">
               <img class="login-logo" src="<?php echo base_url(); ?> ../../assets/LoginAdmin/assets/img/telkom-logo.png">
           </div>
-          <form action="login_user" method="post">
+          <form action="<?php echo base_url('c_login/validate');?>" method="post">
             <div class="field">
               <label class="label">Username</label>
               <div class="control has-icons-right">
-                <input class="input" type="text" placeholder="username" required>
+                <input class="input" type="text" placeholder="username" name="username" required>
                 <span class="icon is-small is-right">
                   <i class="fa fa-user"></i>
                 </span>
@@ -36,7 +36,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="field">
               <label class="label">Password</label>
               <div class="control has-icons-right">
-                <input class="input" type="password" placeholder="password" required>
+                <input class="input" type="password" placeholder="password" name="password" required>
                 <span class="icon is-small is-right">
                   <i class="fa fa-key"></i>
                 </span>

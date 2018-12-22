@@ -7,18 +7,33 @@ class c_user extends CI_Controller {
         $this->load->model('m_user');               
     }
 
+    function index() {
+		if($this->session->has_userdata('username')){
+				if($this->session->userdata('hak_akses')=='admin'){
+					redirect('c_user/homeAdmin');
+				}elseif($this->session->userdata('hak_akses')=='penguji'){
+					redirect('c_user/homePenguji');
+				}
+		}else{
+			$this->load->view('Login/LoginUser');
+		}
+		
+	}
+
     public function homeAdmin(){
 		// $this->load->view('vendor/header_ven');
 		//$data['barang'] = $this->m_barang->getAllBarang('barang');
 		$this->load->view('template/header'); // default template
-		$this->load->view('direktur/dashboard',$data); // dashboard vendornya
+		//$this->load->view('direktur/dashboard',$data); // dashboard vendornya
+		$this->load->view('admin/home_dashboard');
 		$this->load->view('template/footer'); 
 	}
 
 	public function homePenguji(){
 		//$data['barang'] = $this->m_barang->getAllBarang('barang');
 		$this->load->view('template/header');
-		$this->load->view('logistik/view_barang',$data);		
+		//$this->load->view('logistik/view_barang',$data);		
+		$this->load->view('template/body');
 		$this->load->view('template/footer');
 	}
 
@@ -186,7 +201,7 @@ class c_user extends CI_Controller {
 	public function keluar()
 	{
 		$this->session->sess_destroy();
-		redirect('Home');
+		redirect('c_user');
 	}
 
 }

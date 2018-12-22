@@ -9,8 +9,6 @@ class c_login extends CI_Controller
 	function __construct()
 	{
 		parent::__construct();        
-		$this->load->library(array('session'));
-    	$this->load->helper(array('url'));
         $this->load->model('m_user');
 	}
 
@@ -28,7 +26,7 @@ class c_login extends CI_Controller
 	}
 
 	function validate() {
-		$username = $this->input->post('username');
+		$username = $this->input->post('username');	
 		$password = $this->input->post('password');
 
 		$cekUser = $this->m_user->cek($username, $password);		
