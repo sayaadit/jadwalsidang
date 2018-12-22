@@ -24,6 +24,12 @@
   <link rel="stylesheet" href="<?php echo base_url('assets/Admin/documentation/style.css');?>">
   <link rel="stylesheet" href="<?php echo base_url('assets/Admin/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css');?>">
 
+  <!-- Select -->
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/Admin/bower_components/bootstrap-select/dist/css/bootstrap-select.css');?>">
+
+  <!-- DateTimePicker -->
+  <link rel="stylesheet"  href="<?php echo base_url('assets/Admin/bower_components/bootstrap-timepicker/css/timepicker.less');?>">
+
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>

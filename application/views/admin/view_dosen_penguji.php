@@ -86,7 +86,7 @@
             <ul class="treeview-menu">
               <li ><a href="<?php echo base_url('c_jadwal_sidang');?>"><i class="fa fa-circle-o"></i> List Jadwal Sidang</a></li>
               <li class="active" ><a href="<?php echo base_url('c_list_dosen');?>"><i class="fa fa-circle-o"></i>  List Dosen Penguji </a></li>
-              <li ><a href="<?php echo base_url('c_list_dosen');?>"><i class="fa fa-circle-o"></i> List dosen </a></li>
+              <li ><a href="<?php echo base_url('c_list_mahasiswa');?>"><i class="fa fa-circle-o"></i> List Mahasiswa </a></li
             </ul>
           </li>
         </ul>
