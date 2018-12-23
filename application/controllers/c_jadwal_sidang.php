@@ -37,16 +37,24 @@ class c_jadwal_sidang extends CI_Controller
 		$this->load->view('template/footer');
 	}
 
-	function edit_jdwl($kode_dosen){
-		$nama_dosen=$this->input->post('nama_dosen');
-		$data=array(
-			'nama_dosen'=>$nama_dosen
-			);
+	function edit_jdwl($id_sidang){
+		$id_dosen_1 = $this->input->post('penguji1');
+		$id_dosen_2 = $this->input->post('penguji2');
+		$waktu = $this->input->post('waktu');
+
+		$data = array(
+			'id_penguji_1' => $id_dosen_1,
+			'id_penguji_2' => $id_dosen_2,
+			'waktu'=> $waktu
+		);
+
 		$where=array(
-			'kode_dosen'=>$kode_dosen
+			'id_sidang'=>$id_sidang
 			);
-		$this->m_dosen->updateJadwalSidang($where,$data);
-		redirect(base_url('c_list_dosen/viewAllJadwalSidang'));		
+
+		$this->m_jadwal_sidang->updateJadwalSidang($where,$data);
+
+		redirect(base_url('c_jadwal_sidang/viewAllJadwalSidang'));		
 	}
 	
 	function hapus_jdwl($kode_dosen){
@@ -54,20 +62,37 @@ class c_jadwal_sidang extends CI_Controller
             'kode_dosen'=>$kode_dosen
 		);
 		$this->m_dosen->deleteJadwalSidang($where);
-		redirect(base_url('c_list_dosen/viewAllJadwalSidang'));
+		redirect(base_url('c_jadwal_sidang/viewAllJadwalSidang'));
 	}
 
 	function insert_jdwl(){
-		$kode_dosen = $this->input->post('kode_dosen');
-		$nama_dosen = $this->input->post('nama_dosen');
+		$id_dosen_1 = $this->input->post('penguji1');
+		$id_dosen_2 = $this->input->post('penguji2');
+		$nim = $this->input->post('nim');
+		$waktu = $this->input->post('waktu');
 
 		$data = array(
-			'kode_dosen' => $kode_dosen,
-			'nama_dosen' => $nama_dosen
+			'id_penguji_1' => $id_dosen_1,
+			'id_penguji_2' => $id_dosen_2,
+			'waktu'=> $waktu
 		);
 
-		$this->m_dosen->insertJadwalSidang($data);
-		redirect(base_url('c_list_dosen/viewAlldosen'));
+		$this->m_jadwal_sidang->insertJadwalSidang($data);
+
+		// get last record to insert in mahasisaw
+		$lastRecord = $this->m_jadwal_sidang->getLastRecord();
+		//print_r($lastRecord->id_sidang);
+
+		$where = array(
+			'nim' => $nim
+		);
+
+		$setID = array(
+			'id_sidang' => $lastRecord->id_sidang
+		);
+		$this->m_mahasiswa->updateMahasiswa($where,$setID);
+
+		redirect(base_url('c_jadwal_sidang/viewAllJadwalSidang'));
 
 	}
 

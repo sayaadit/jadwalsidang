@@ -28,7 +28,8 @@
   <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/Admin/bower_components/bootstrap-select/dist/css/bootstrap-select.css');?>">
 
   <!-- DateTimePicker -->
-  <link rel="stylesheet"  href="<?php echo base_url('assets/Admin/bower_components/bootstrap-timepicker/css/timepicker.less');?>">
+  <!-- <link rel="stylesheet"  href="<?php echo base_url('assets/Admin/bower_components/bootstrap-timepicker/css/timepicker.less');?>"> -->
+  <link rel="stylesheet"  href="<?php echo base_url('assets/Admin/bower_components/bootstrap-datetimepicker-master/css/bootstrap-datetimepicker.css');?>">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -40,4 +41,5 @@
   <!-- Google Font -->
   <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+
 </head>

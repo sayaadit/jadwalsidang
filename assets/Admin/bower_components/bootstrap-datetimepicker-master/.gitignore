@@ -1,11 +1,5 @@
-bower_components
-node_modules
+node_modules/
 .idea
-.vs
-obj
-bin
-site
-*.user
-*.csproj
-*.sln
-*.nupkg
+*.iml
+atlassian-ide-plugin.xml
+yuicompressor-*

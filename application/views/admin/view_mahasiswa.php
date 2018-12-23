@@ -2,11 +2,11 @@
   <div class="wrapper">
     <header class="main-header">
       <!-- Logo -->
-      <a href="index2.html" class="logo">
+      <a href="<?php echo base_url('c_user')?>" class="logo">
         <!-- mini logo for sidebar mini 50x50 pixels -->
-        <span class="logo-mini"><b>A</b>LT</span>
+        <span class="logo-mini"><b>J</b>S</span>
         <!-- logo for regular state and mobile devices -->
-        <span class="logo-lg"><b>Admin</b>LTE</span>
+        <span class="logo-lg"><b>Jadwal</b>Sidang</span>
       </a>
       <!-- Header Navbar: style can be found in header.less -->
       <nav class="navbar navbar-static-top">
@@ -55,7 +55,7 @@
         <!-- Sidebar user panel -->
         <div class="user-panel">
           <div class="pull-left image">
-            <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+            <img src="<?php echo base_url('assets/Admin/dist/img/user2-160x160.jpg');?>" class="img-circle" alt="User Image">
           </div>
           <div class="pull-left info">
             <p><?php echo $this->session->userdata('username') ;?></p>
@@ -98,12 +98,12 @@
       <!-- Content Header (Page header) -->
       <section class="content-header">
         <h1>
-        Dashboard
-        <small>Control panel</small>
+        List Mahasiswa
+        <small>Dashboard</small>
         </h1>
         <ol class="breadcrumb">
           <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-          <li class="active">Dashboard</li>
+          <li class="active">List Mahasiswa</li>
         </ol>
       </section>
       <!-- Main content -->
@@ -112,8 +112,7 @@
         <div class="row">
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">List Mahasiswa</h3>
-               <a href="#tambahMhs" data-toggle="modal"> <button type="button" class="btn btn-success"><i class="fa fa-external-link"></i>Tambah<span class="" aria-hidden="true"></span></button></a>
+              <a href="#tambahMhs" data-toggle="modal"> <button type="button" class="btn btn-success"><i class="fa fa-external-link"></i>Tambah<span class="" aria-hidden="true"></span></button></a>
             </div>
             <div class="box-body">
               <table id="table_mahasiswa" class="table table-bordered table-hover">
@@ -136,144 +135,130 @@
                     <td><?php echo $mhs->nama;?></td>
                     <td>
                       <a href="#view<?php echo $mhs->nim;?>" data-toggle="modal"> <button type="button" class="btn btn-primary"><i class="fa fa-pencil-square-o"></i>Edit<span class="" aria-hidden="true"></span></button></a>
-
-                     <a href="<?php echo base_url('c_list_mahasiswa/hapus_mhs/'.$mhs->nim);?>" class="btn btn-danger" onclick="return confirm('Apakah anda yakin ingin menghapus data?')"><i class="fa fa-trash"></i></a> 
-
-                  <!-- Modal Edit -->
+                      <a href="<?php echo base_url('c_list_mahasiswa/hapus_mhs/'.$mhs->nim);?>" class="btn btn-danger" onclick="return confirm('Apakah anda yakin ingin menghapus data?')"><i class="fa fa-trash"></i></a>
+                      <!-- Modal Edit -->
                       <div  role="dialog" tabindex="" id="view<?php echo $mhs->nim; ?>" class="modal fade">
                         <div class="modal-dialog">
                           <div class="modal-content">
-
                             <div class="modal-header">
                               <h4 class="modal-title">Edit Mahasiswa</h4>
                               <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
                             </div>
-
                             <div class="modal-body">
                               <div class="form-group">
-                                  <form action="<?php echo base_url('c_list_mahasiswa/edit_mhs/'.$mhs->nim); ?>" method="post">
-                              
-                                    <table class="table-form">
-                                      <tr>
-                                        <td width="20%">NIM </td><td><b>
-                                          <input type="text"  name="nim_baru"  class="form-control"  value="<?php echo $mhs->nim;?>" readonly></b></td>
-                                      </tr>
-                                      <tr>
-                                        <td width="30%">Nama </td><td><b>
-                                          <input type="text" name="nama_baru"  class="form-control"   value="<?php echo $mhs->nama;?>" required></b></td>
-                                      </tr>
+                                <form action="<?php echo base_url('c_list_mahasiswa/edit_mhs/'.$mhs->nim); ?>" method="post">
                                   
-                                    </table>
-                                      <br>
-                                      <button type="submit"  class="btn btn-success" value="submit"><i class="fa fa-check icon-white"></i> Simpan</button>
-                                  </form>
-                              </div>
-                            </div>
+                                  <table class="table-form">
+                                    <tr>
+                                      <td width="20%">NIM </td><td><b>
+                                    <input type="text"  name="nim_baru"  class="form-control"  value="<?php echo $mhs->nim;?>" readonly></b></td>
+                                  </tr>
+                                  <tr>
+                                    <td width="30%">Nama </td><td><b>
+                                  <input type="text" name="nama_baru"  class="form-control"   value="<?php echo $mhs->nama;?>" required></b></td>
+                                </tr>
                                 
-                                
-                            <div class="modal-footer">
-                              <button type="button" class="btn btn-warning" data-dismiss="modal"> Back</button>
-                            </div>
-                                
+                              </table>
+                              <br>
+                              <button type="submit"  class="btn btn-success" value="submit"><i class="fa fa-check icon-white"></i> Simpan</button>
+                            </form>
                           </div>
                         </div>
+                        
+                        
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-warning" data-dismiss="modal"> Back</button>
+                        </div>
+                        
                       </div>
-                      <!-- END Edit  -->
-
-
-                    </td>
-                  </tr>
-
-
-
-                  <?php $no++; endforeach; ?>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-        <!-- /.row (main row) -->
-      </section>
-      <!-- /.content -->
-    </div>
-    <!-- Modal Edit -->
-    <div  role="dialog" tabindex="" id="view<?php echo $mhs->nim; ?>" class="modal fade">
-      <div class="modal-dialog">
-        <div class="modal-content">
-
-          <div class="modal-header">
-            <h4 class="modal-title">Edit Mahasiswa</h4>
-            <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
-          </div>
-
-          <div class="modal-body">
-            <div class="form-group">
-                <form action="<?php echo base_url('c_list_mahasiswa/edit_mhs/'.$mhs->nim); ?>" method="post">
-            
-                  <table class="table-form">
-                    <tr>
-                      <td width="20%">NIM </td><td><b>
-                        <input type="text"  name="nim_baru"  class="form-control"  value="<?php echo $mhs->nim;?>" readonly></b></td>
-                    </tr>
-                    <tr>
-                      <td width="30%">Nama </td><td><b>
-                        <input type="text" name="nama_baru"  class="form-control"   value="<?php echo $mhs->nama;?>" required></b></td>
-                    </tr>
-                
-                  </table>
-                    <br>
-                    <button type="submit"  class="btn btn-success" value="submit"><i class="fa fa-check icon-white"></i> Simpan</button>
-                </form>
-            </div>
-          </div>
-              
-              
-          <div class="modal-footer">
-            <button type="button" class="btn btn-warning" data-dismiss="modal"> Back</button>
-          </div>
-              
+                    </div>
+                  </div>
+                  <!-- END Edit  -->
+                </td>
+              </tr>
+              <?php $no++; endforeach; ?>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
-    <!-- END Edit  -->
-
-      <!-- Modal Edit -->
-    <div  role="dialog" tabindex="" id="tambahMhs" class="modal fade">
-      <div class="modal-dialog">
-        <div class="modal-content">
-
-          <div class="modal-header">
-            <h4 class="modal-title">Tambah Mahasiswa</h4>
-            <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
-          </div>
-
-          <div class="modal-body">
-            <div class="form-group">
-                <form action="<?php echo base_url('c_list_mahasiswa/insert_mhs'); ?>" method="post">
-            
-                  <table class="table-form">
-                    <tr>
-                      <td width="20%">NIM </td><td><b>
-                        <input type="text"  name="nim"  class="form-control" required></b></td>
-                    </tr>
-                    <tr>
-                      <td width="30%">Nama </td><td><b>
-                        <input type="text" name="nama"  class="form-control"  required></b></td>
-                    </tr>
-                
-                  </table>
-                    <br>
-                    <button type="submit"  class="btn btn-success" value="submit"><i class="fa fa-check icon-white"></i> Simpan </button>
-                </form>
-            </div>
-          </div>
-              
-              
-          <div class="modal-footer">
-            <button type="button" class="btn btn-warning" data-dismiss="modal"> Back </button>
-          </div>
-              
-        </div>
+    <!-- /.row (main row) -->
+  </section>
+  <!-- /.content -->
+</div>
+<!-- Modal Edit -->
+<div  role="dialog" tabindex="" id="view<?php echo $mhs->nim; ?>" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Edit Mahasiswa</h4>
+        <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
       </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <form action="<?php echo base_url('c_list_mahasiswa/edit_mhs/'.$mhs->nim); ?>" method="post">
+            
+            <table class="table-form">
+              <tr>
+                <td width="20%">NIM </td><td><b>
+              <input type="text"  name="nim_baru"  class="form-control"  value="<?php echo $mhs->nim;?>" readonly></b></td>
+            </tr>
+            <tr>
+              <td width="30%">Nama </td><td><b>
+            <input type="text" name="nama_baru"  class="form-control"   value="<?php echo $mhs->nama;?>" required></b></td>
+          </tr>
+          
+        </table>
+        <br>
+        <button type="submit"  class="btn btn-success" value="submit"><i class="fa fa-check icon-white"></i> Simpan</button>
+      </form>
     </div>
-    <!-- END Edit  -->
+  </div>
+  
+  
+  <div class="modal-footer">
+    <button type="button" class="btn btn-warning" data-dismiss="modal"> Back</button>
+  </div>
+  
+</div>
+</div>
+</div>
+<!-- END Edit  -->
+<!-- Modal Edit -->
+<div  role="dialog" tabindex="" id="tambahMhs" class="modal fade">
+<div class="modal-dialog">
+<div class="modal-content">
+  <div class="modal-header">
+    <h4 class="modal-title">Tambah Mahasiswa</h4>
+    <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+  </div>
+  <div class="modal-body">
+    <div class="form-group">
+      <form action="<?php echo base_url('c_list_mahasiswa/insert_mhs'); ?>" method="post">
+        
+        <table class="table-form">
+          <tr>
+            <td width="20%">NIM </td><td><b>
+          <input type="text"  name="nim"  class="form-control" required></b></td>
+        </tr>
+        <tr>
+          <td width="30%">Nama </td><td><b>
+        <input type="text" name="nama"  class="form-control"  required></b></td>
+      </tr>
+      
+    </table>
+    <br>
+    <button type="submit"  class="btn btn-success" value="submit"><i class="fa fa-check icon-white"></i> Simpan </button>
+  </form>
+</div>
+</div>
+
+
+<div class="modal-footer">
+<button type="button" class="btn btn-warning" data-dismiss="modal"> Back </button>
+</div>
+
+</div>
+</div>
+</div>
+<!-- END Edit  -->

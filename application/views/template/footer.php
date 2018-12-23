@@ -44,30 +44,59 @@
 
 <!-- time date picker -->
 <script type="text/javascript" src="<?php echo base_url('assets/Admin/bower_components/moment/moment.js');?>"></script>
-<script type="text/javascript" src="<?php echo base_url('assets/Admin/bower_components/bootstrap-timepicker/js/bootstrap-timepicker.js');?>"></script>
+
+<script type="text/javascript" src="<?php echo base_url('assets/Admin/bower_components/bootstrap-datetimepicker-master/js/bootstrap-datetimepicker.js');?>" charset="UTF-8"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/Admin/bower_components/bootstrap-datetimepicker-master/js/locales/bootstrap-datetimepicker.fr.js');?>" charset="UTF-8"></script>
 
 
 <script type="text/javascript">
-  
-  $(function () {
-    $('#table_mahasiswa').DataTable()
-    $('#table_dosen').DataTable()
-    $('#table_jadwal_sidang').DataTable()
-    $('#example2').DataTable({
-      'paging'      : true,
-      'lengthChange': false,
-      'searching'   : false,
-      'ordering'    : true,
-      'info'        : true,
-      'autoWidth'   : false
-    })
-     $('#datetimepicker12').datepicker({
-                                inline: true,
-                                sideBySide: true
-                            });
-  })
- 
+  $(document).ready(function() {
+    $(function () {
+      $('#table_mahasiswa').DataTable()
+      $('#table_dosen').DataTable()
+      $('#table_jadwal_sidang').DataTable()
+      $('#example2').DataTable({
+        'paging'      : true,
+        'lengthChange': false,
+        'searching'   : false,
+        'ordering'    : true,
+        'info'        : true,
+        'autoWidth'   : false
+      });
+     
+      $('#datetimepicker').datetimepicker({
+        //language:  'fr',
+        weekStart: 1,
+        todayBtn:  1,
+        autoclose: 1,
+        todayHighlight: 1,
+        startView: 2,
+        forceParse: 0,
+        showMeridian: 1,
+        startDate : '+1d',
+        altField: '#input_jadwal'
+        });
+      $('#input_jadwal').change(function(){
+          $('#datetimepicker').datetimepicker('setDate', $(this).val());
+      });
 
+       $('#datetimepicker_jadwal').datetimepicker({
+        //language:  'fr',
+        weekStart: 1,
+        todayBtn:  1,
+        autoclose: 1,
+        todayHighlight: 1,
+        startView: 2,
+        forceParse: 0,
+        showMeridian: 1,
+        startDate : '+1d'
+                });
+
+
+
+    });
+ 
+  });
 
 </script>
 </body>

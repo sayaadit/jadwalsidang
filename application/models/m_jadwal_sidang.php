@@ -36,5 +36,11 @@ class m_jadwal_sidang extends CI_Model {
         $this->db->where($where);
         $this->db->delete('jadwal_sidang');
     }
+
+    function getLastRecord(){
+        $last_row=$this->db->select('id_sidang')->order_by('id_sidang',"desc")->limit(1)->get('jadwal_sidang')->row();
+
+        return $last_row;
+    }
 	
 }
