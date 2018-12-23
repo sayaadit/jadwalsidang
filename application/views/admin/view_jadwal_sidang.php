@@ -141,7 +141,7 @@
                     <td><?php echo date("h:i a, d M Y",strtotime($jdwl->waktu));?></td>
                     <td>
                       <a href="#view<?php echo $jdwl->id_sidang;?>" data-toggle="modal"> <button type="button" class="btn btn-primary"><i class="fa fa-pencil-square-o"></i>Edit<span class="" aria-hidden="true"></span></button></a>
-                      <a href="<?php echo base_url('c_list_dosen/hapus_dsn/'.$jdwl->kode_dosen);?>" class="btn btn-danger" onclick="return confirm('Apakah anda yakin ingin menghapus data?')"><i class="fa fa-trash"></i></a>
+                      <a href="<?php echo base_url('c_jadwal_sidang/hapus_jdwl/'.$jdwl->id_sidang);?>" class="btn btn-danger" onclick="return confirm('Apakah anda yakin ingin menghapus data?')"><i class="fa fa-trash"></i></a>
                       <!-- Modal Edit -->
                       <div  role="dialog" tabindex="" id="view<?php echo $jdwl->id_sidang; ?>" class="modal fade">
                         <div class="modal-dialog">
@@ -225,44 +225,7 @@
 </section>
 <!-- /.content -->
 </div>
-<!-- Modal Edit -->
-<div  role="dialog" tabindex="" id="view<?php echo $jdwl->kode_dosen; ?>" class="modal fade">
-<div class="modal-dialog">
-<div class="modal-content">
-  <div class="modal-header">
-    <h4 class="modal-title">Edit dosen</h4>
-    <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
-  </div>
-  <div class="modal-body">
-    <div class="form-group">
-      <form action="<?php echo base_url('c_list_dosen/edit_dsn/'.$jdwl->kode_dosen); ?>" method="post">
-        
-        <table class="table-form">
-          <tr>
-            <td width="20%">kode_dosen </td><td><b>
-          <input type="text"  name="nim_baru"  class="form-control"  value="<?php echo $jdwl->kode_dosen;?>" readonly></b></td>
-        </tr>
-        <tr>
-          <td width="30%">Nama </td><td><b>
-        <input type="text" name="nama_baru"  class="form-control"   value="<?php echo $jdwl->nama;?>" required></b></td>
-      </tr>
-      
-    </table>
-    <br>
-    <button type="submit"  class="btn btn-success" value="submit"><i class="fa fa-check icon-white"></i> Simpan</button>
-  </form>
-</div>
-</div>
 
-
-<div class="modal-footer">
-<button type="button" class="btn btn-warning" data-dismiss="modal"> Back</button>
-</div>
-
-</div>
-</div>
-</div>
-<!-- END Edit  -->
 <!-- Modal Edit -->
 <div  role="dialog" tabindex="" id="tambahJdwl" class="modal fade">
 <div class="modal-dialog">

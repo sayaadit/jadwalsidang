@@ -57,11 +57,11 @@ class c_jadwal_sidang extends CI_Controller
 		redirect(base_url('c_jadwal_sidang/viewAllJadwalSidang'));		
 	}
 	
-	function hapus_jdwl($kode_dosen){
+	function hapus_jdwl($id_sidang){
 		$where=array(
-            'kode_dosen'=>$kode_dosen
+            'id_sidang'=>$id_sidang
 		);
-		$this->m_dosen->deleteJadwalSidang($where);
+		$this->m_jadwal_sidang->deleteJadwalSidang($where);
 		redirect(base_url('c_jadwal_sidang/viewAllJadwalSidang'));
 	}
 
