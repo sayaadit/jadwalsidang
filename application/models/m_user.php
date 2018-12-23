@@ -21,6 +21,11 @@ class m_user extends CI_Model {
         $this->db->insert('user',$data);
     }
 
+    function cek_username($username) {
+       $this->db->where('username', $username);
+       return $this->db->get('user');
+    }
+
 	function ambilNama($param){
 		$this->db->select('nama,no_hp');
         $this->db->where($param);

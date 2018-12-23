@@ -89,7 +89,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <button type="submit" class="button is-vcentered is-primary is-outlined">Sign Up!</button>
                   </div>
                   <div class="has-text-centered">
-                     <p>Already have an account? <a href="login.html" class="signup">Log in now !</a></p>
+                     <p>Already have an account? <a href="<?php echo base_url('c_user');?>" class="signup">Log in now !</a></p>
                   </div>
               </form>
               </section>

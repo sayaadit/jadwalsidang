@@ -4,7 +4,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class c_user extends CI_Controller {
 	public function __construct() {
         parent::__construct();
-        $this->load->model('m_user');               
+        $this->load->model('m_user');   
+        $this->load->model('m_jadwal_sidang');   
+        $this->load->model('m_dosen');         
+        $this->load->model('m_mahasiswa');         
     }
 
     function index() {
@@ -23,9 +26,13 @@ class c_user extends CI_Controller {
     public function homeAdmin(){
 		// $this->load->view('vendor/header_ven');
 		//$data['barang'] = $this->m_barang->getAllBarang('barang');
+    	$data['jadwal'] = $this->m_jadwal_sidang->getAllJadwalSidang()->result();
+		$data['mahasiswa'] = $this->m_mahasiswa->getAllMahasiswa()->result(); 
+		$data['dosen'] = $this->m_dosen->getAllDosen()->result();
+
 		$this->load->view('template/header'); // default template
 		//$this->load->view('direktur/dashboard',$data); // dashboard vendornya
-		$this->load->view('admin/home_dashboard');
+		$this->load->view('admin/home_dashboard' , $data);
 		$this->load->view('template/footer'); 
 	}
 
@@ -93,17 +100,27 @@ class c_user extends CI_Controller {
 		$nama = $this->input->post('nama');
 		$notel = $this->input->post('notel');
 
-		$data = array(
-			'username' => $username,
-			'password' => md5($password),
-			'hak_akses' => 'admin',
-			'nama' => $nama,
-			'no_hp' => $notel
-		);
+		$check_username = $this->m_user->cek_username($username);
 
-		$this->m_user->insertUser($data);
+		if($check_username->num_rows() > 0 ) {
+			?>
+                <script type=text/javascript>alert("Username sudah ada");</script>
 
-		redirect('c_user');
+        	<?php
+        	$this->index();
+		} else {
+			$data = array(
+				'username' => $username,
+				'password' => md5($password),
+				'hak_akses' => 'admin',
+				'nama' => $nama,
+				'no_hp' => $notel
+			);
+
+			$this->m_user->insertUser($data);
+
+			redirect('c_user');
+		}
 	}
 
 	//untuk logistik

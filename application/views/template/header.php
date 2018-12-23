@@ -42,4 +42,7 @@
   <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 
+  <!-- fullCalendar -->
+  <link rel="stylesheet" href="<?php echo base_url('assets/Admin/bower_components/fullcalendar/dist/fullcalendar.min.css');?>">
+  <link rel="stylesheet" href="<?php echo base_url('assets/Admin/bower_components/fullcalendar/dist/fullcalendar.print.min.css');?>" media="print">
 </head>

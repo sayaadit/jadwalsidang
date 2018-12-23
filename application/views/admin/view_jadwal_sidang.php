@@ -285,7 +285,7 @@
 <tr>
   <td width="50%">Input Jadwal</td><td><b>
   <div class="row-fluid">
-    <input type="text" id="datetimepicker_jadwal" data-date-format="yyyy-mm-dd hh:ii" name="waktu" required>
+    <input type="text" id="datetimepicker_jadwal_tambah" data-date-format="yyyy-mm-dd hh:ii" name="waktu" required>
   </div>
 </td>
 </tr>
