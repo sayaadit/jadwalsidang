@@ -15,7 +15,7 @@ class c_user extends CI_Controller {
 					redirect('c_user/homePenguji');
 				}
 		}else{
-			$this->load->view('Login/LoginUser');
+			$this->load->view('Login/LoginAdmin');
 		}
 		
 	}
@@ -44,7 +44,6 @@ class c_user extends CI_Controller {
 		$this->load->view('logistik/kelola_user',$data);
 		$this->load->view('template/footer');	
 	}
-
 
 	//untuk direktur
 	public function viewProfil(){
@@ -79,46 +78,32 @@ class c_user extends CI_Controller {
 			$this->viewProfil();
 		}
 	}
-	//untuk direktur
-	public function update_password_direktur(){
-		$this->form_validation->set_rules('curr_password', 'current password','required|alpha_numeric');
-		$this->form_validation->set_rules('new_password', 'new password','required|alpha_numeric');
-		$this->form_validation->set_rules('conf_password', 'confirm password','required|alpha_numeric');
-		if($this->form_validation->run()){
-			$curr_password = $this->input->post('curr_password');
-			$new_password = $this->input->post('new_password');
-			$conf_password = $this->input->post('conf_password');			
-			$uname = $this->session->userdata('username');
-			$data= $this->m_user->getCurrentpass($uname);					
-				if($data->password == ($curr_password)) {			
-					if($new_password == $conf_password ){
-						if($this->m_user->update_password($new_password, $uname)){						
-							?>
-	                    		 <script type=text/javascript>alert("update sukses!");</script>
-	        				<?php
-		        			$this->load->view('template/header');
-							$this->viewProfil();							
-						}else{						
-							?>
-	                    		 <script type=text/javascript>alert("Gagal update password!");</script>
-	        				<?php	    
-							$this->viewProfil();
-						}
-					}else{
-						?>
-	                     <script type=text/javascript>alert("password baru dan confirm password tidak cocok!");</script>
-	        			<?php
-						$this->viewProfil();
-					}
-				}else{
-					?>
-                     <script type=text/javascript>alert("password lama yang anda masukan salah!");</script>
-        			<?php
-					$this->viewProfil();
-				}				
-		}else{
-			$this->load->view('direktur/kelola_profil');
-		}
+
+  	public function view_register() {
+    	if (isset($_SESSION['user_id'])) {
+      		redirect('c_user');
+    	} else {
+      		$this->load->view('Login/SignUpAdmin');
+    	}
+  	}
+
+	function registrasi(){
+		$username = $this->input->post('username');
+		$password = $this->input->post('password');
+		$nama = $this->input->post('nama');
+		$notel = $this->input->post('notel');
+
+		$data = array(
+			'username' => $username,
+			'password' => md5($password),
+			'hak_akses' => 'admin',
+			'nama' => $nama,
+			'no_hp' => $notel
+		);
+
+		$this->m_user->insertUser($data);
+
+		redirect('c_user');
 	}
 
 	//untuk logistik

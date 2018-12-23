@@ -21,23 +21,31 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="has-text-centered">
                     <img class="login-logo" src="<?php echo base_url(); ?> ../../assets/LoginAdmin/assets/img/telkom-logo.png">
                 </div>
-                <form action="#" method="post">
+                <form action="<?php echo base_url('c_user/registrasi')?>" method="post">
                   <div class="field">
                     <label class="label">Username</label>
                     <div class="control has-icons-right">
-                      <input class="input" type="text" placeholder="username" required>
+                      <input name="username" class="input" type="text" placeholder="username" required>
                       <span class="icon is-small is-right">
                         <i class="fa fa-user"></i>
                       </span>
                     </div>
                   </div>
-
-                  <div class="field">
-                    <label class="label">Email</label>
+                   <div class="field">
+                    <label class="label">Nama</label>
                     <div class="control has-icons-right">
-                      <input class="input" type="text" placeholder="email" required>
+                      <input name="nama" class="input" type="text" placeholder="Nama" required>
                       <span class="icon is-small is-right">
-                        <i class="fa fa-envelope"></i>
+                        <i class="fa fa-user-circle"></i>
+                      </span>
+                    </div>
+                  </div>
+                   <div class="field">
+                    <label class="label">No Hp</label>
+                    <div class="control has-icons-right">
+                      <input name="notel" class="input" type="text" placeholder="No Handphone" required>
+                      <span class="icon is-small is-right">
+                        <i class="fa fa-phone"></i>
                       </span>
                     </div>
                   </div>
@@ -45,7 +53,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   <div class="field">
                     <label class="label">Password</label>
                     <div class="control has-icons-right">
-                      <input class="input" type="password" placeholder="password" required>
+                      <input id="password" class="input" type="password" placeholder="password" onkeyup='check();' required>
                       <span class="icon is-small is-right">
                         <i class="fa fa-key"></i>
                       </span>
@@ -55,12 +63,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   <div class="field">
                     <label class="label">Retype Password</label>
                     <div class="control has-icons-right">
-                      <input class="input" type="password" placeholder="retype password" required>
+                      <input id="confirm_password" name="password" class="input" type="password" placeholder="retype password" onkeyup='check();' required>
                       <span class="icon is-small is-right">
                         <i class="fa fa-key"></i>
                       </span>
+                      <span class="small" id='message'> </span>
                     </div>
                   </div>
+
+                  <script>
+                      var check = function() {
+                        if (document.getElementById('password').value ==
+                          document.getElementById('confirm_password').value && document.getElementById('password').value != '') {
+                          document.getElementById('message').style.color = 'green';
+                        document.getElementById('message').innerHTML = 'Password is matching';
+                      } else {
+                        document.getElementById('message').style.color = 'red';
+                        document.getElementById('message').innerHTML = 'Password is not matching';
+                      }
+                    }
+                  </script>
+
                   <div class="has-text-centered">
                     <!-- <a class="button is-vcentered is-primary is-outlined">Sign Up!</a> -->
                     <button type="submit" class="button is-vcentered is-primary is-outlined">Sign Up!</button>

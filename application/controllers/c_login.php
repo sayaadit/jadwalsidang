@@ -29,7 +29,7 @@ class c_login extends CI_Controller
 		$username = $this->input->post('username');	
 		$password = $this->input->post('password');
 
-		$cekUser = $this->m_user->cek($username, $password);		
+		$cekUser = $this->m_user->cek($username, md5($password));		
 
 		if($cekUser->num_rows() == 1)
 		{

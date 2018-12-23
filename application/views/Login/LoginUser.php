@@ -47,7 +47,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <button type="submit" class="button is-primary is-outlined">Login</button>
             </div>
             <div class="has-text-centered bottomLogin">
-              <p> Don't you have an account? <a href="<?php echo base_url(); ?>user/view_register" class="signup">Sign up now!</a></p>
+              <p> Don't you have an account? <a href="<?php echo base_url('c_user/view_register'); ?>" class="signup">Sign up now!</a></p>
             </div>
           </form>
         </section>

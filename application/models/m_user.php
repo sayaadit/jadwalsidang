@@ -17,6 +17,10 @@ class m_user extends CI_Model {
 		return $this->db->get('user');
 	}
 
+    function insertUser($data){
+        $this->db->insert('user',$data);
+    }
+
 	function ambilNama($param){
 		$this->db->select('nama,no_hp');
         $this->db->where($param);

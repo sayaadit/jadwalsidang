@@ -22,7 +22,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <div class="has-text-centered">
               <img class="login-logo" src="<?php echo base_url(); ?> ../../assets/LoginAdmin/assets/img/telkom-logo.png">
           </div>
-          <form action="login_user" method="post">
+          <form action="<?php echo base_url('c_login/validate');?>" method="post">
             <div class="field">
               <label class="label">Username</label>
               <div class="control has-icons-right">
@@ -47,7 +47,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <button type="submit" class="button is-primary is-outlined">Login</button>
             </div>
             <div class="has-text-centered bottomLogin">
-              <p> Don't you have an account? <a href="<?php echo base_url(); ?>user/view_register" class="signup">Sign up now!</a></p>
+              <p> Don't you have an account? <a href="<?php echo base_url('c_user/view_register'); ?>" class="signup">Sign up now!</a></p>
             </div>
           </form>
         </section>
